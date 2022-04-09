@@ -15,26 +15,26 @@ func maxValue(arr []int) int {
 
 			continue
 		}
+
 		if len(tempArray) > 1 {
 			deretArray = append(deretArray, tempArray)
 
 			tempArray = []int{arr[i]}
 			tempIndex = 0
+
+			continue
 		}
+
+		tempArray = nil
+		tempArray = []int{arr[i]}
 
 	}
 
 	var biggest int
 	for _, value := range deretArray {
-		// tempIndex := len(value)
-
 		var count int
 		var tempIndex int
 		for i := 0; i < len(value); i++ {
-			//if tempIndex > len(arr) {
-			//	break
-			//}
-
 			if count == len(value)-1 {
 				if value[len(value)-1] > biggest {
 					biggest = value[len(value)-1]
@@ -55,7 +55,7 @@ func maxValue(arr []int) int {
 }
 func main() {
 
-	x := []int{1, 2, 3, 8, 9, 3, 2, 1}
+	x := []int{7, 1, 2, 9, 7, 2, 1}
 	fmt.Println(maxValue(x))
 
 }
