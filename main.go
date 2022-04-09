@@ -35,17 +35,16 @@ func maxValue(arr []int) int {
 			//	break
 			//}
 
-			if arr[len(arr)-i-1] == value[tempIndex] {
-				count++
-				tempIndex++
-				continue
-			}
-
-			if count == len(value) {
+			if count == len(value)-1 {
 				if value[len(value)-1] > biggest {
 					biggest = value[len(value)-1]
 				}
 				count = 0
+			}
+
+			if arr[len(arr)-i-1] == value[tempIndex] {
+				count++
+				tempIndex++
 			}
 
 		}
@@ -54,7 +53,6 @@ func maxValue(arr []int) int {
 
 	return biggest
 }
-
 func main() {
 
 	x := []int{1, 2, 3, 8, 9, 3, 2, 1}
